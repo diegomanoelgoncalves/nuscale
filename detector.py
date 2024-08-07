@@ -5,8 +5,8 @@ from scrip_nuscale import*
 #from scrip_nuscale_sbu import* 
 
 # Definindo os caminhos dos arquivos
-file_path_m = 'nuscale_0d.c_det.m'
-new_file_path_txt = 'nuscale_0d.c_det.txt'
+file_path_m = '/home/diego/results_ouput/nuscale_sbu_0d.c_det.m'
+new_file_path_txt = '/home/diego/results_ouput/nuscale_sbu_0d.c_det.txt'
 
 # Checar se o arquivo existe antes de renomear
 if os.path.exists(file_path_m):
@@ -178,29 +178,57 @@ with open(output_file_max, 'w') as f:
         f.write(f"{z_val},{max_power_density_at_z}\n")
 
 # Plotagem
+
 fig1 = plt.figure(1)
-ax1 = fig1.add_subplot(111, projection='3d')
-scatter1 = ax1.scatter(x, y, power_density_i, c=power_density_i,cmap='jet', marker='.')
-ax1.set_xlabel('Z [cm]')
-ax1.set_ylabel('Y [cm]')
-ax1.set_zlabel('Densidade de Potência [W/cm]')
-fig1.colorbar(scatter1, ax=ax1, label='Densidade de Potência [W/cm]')
-ax1.set_title('Distribuição de Densidade de Potência no Plano ZY')
-# Adjusting the view to a top-down 2D view
-ax1.view_init(elev=90, azim=-90)  # 90 degrees elevation and -90 degrees azimuth
+# First subplot: Distribuição de Densidade de Potência no Plano ZY
+ax1 = fig1.add_subplot(121, projection='3d')  # 1 row, 2 columns, 1st subplot
+scatter1 = ax1.scatter(x, y, power_density_i, c=power_density_i, cmap='turbo', marker='.')
+ax1.set_xlabel('X grid')
+ax1.set_ylabel('Y grid')
+ax1.set_zlabel('')
+ax1.set_title('Densidade de Potência [W/cm]')
+ax1.view_init(elev=90, azim=-90)  # Top-down 2D view
+fig1.colorbar(scatter1, ax=ax1, label='')
+
+# Second subplot: Distribuição de Densidade de Potência no Plano XY
+ax2 = fig1.add_subplot(122, projection='3d')  # 1 row, 2 columns, 2nd subplot
+scatter2 = ax2.scatter(y, z, power_density_i, c=power_density_i, cmap='turbo', marker='.')
+ax2.set_xlabel('Y grid')
+ax2.set_ylabel('Z grid')
+ax2.set_zlabel('')
+ax2.set_title('Densidade de Potência [W/cm]')
+ax2.view_init(elev=90, azim=-90)  # Top-down 2D view
+fig1.colorbar(scatter2, ax=ax2, label='')
+
+# Show the figure
+plt.tight_layout()
 plt.show()
 
 fig2 = plt.figure(2)
-ax2 = fig2.add_subplot(111, projection='3d')
-scatter2 = ax2.scatter(y, z, power_density_i, c=power_density_i,cmap='jet', marker='.')
-ax2.set_xlabel('X [cm]')
-ax2.set_ylabel('Y [cm]')
+# First subplot: Distribuição de Densidade de Potência no Plano ZY
+ax1 = fig2.add_subplot(121, projection='3d')  # 1 row, 2 columns, 1st subplot
+scatter1 = ax1.scatter(x, y, power_density_i, c=power_density_i, cmap='viridis', marker='.')
+ax1.set_xlabel('X grid')
+ax1.set_ylabel('Y grid')
+ax1.set_zlabel('Densidade de Potência [W/cm]')
+ax1.set_title('')
+#ax1.view_init(elev=90, azim=-90)  # Top-down 2D view
+fig2.colorbar(scatter1, ax=ax1, label='')
+
+# Second subplot: Distribuição de Densidade de Potência no Plano XY
+ax2 = fig2.add_subplot(122, projection='3d')  # 1 row, 2 columns, 2nd subplot
+scatter2 = ax2.scatter(y, z, power_density_i, c=power_density_i, cmap='viridis', marker='.')
+ax2.set_xlabel('Y grid')
+ax2.set_ylabel('Z grid')
 ax2.set_zlabel('Densidade de Potência [W/cm]')
-fig2.colorbar(scatter2, ax=ax2, label='Densidade de Potência [W/cm]')
-ax2.set_title('Distribuição de Densidade de Potência no Plano XY')
-# Adjusting the view to a top-down 2D view
-ax2.view_init(elev=90, azim=-90)  # 90 degrees elevation and -90 degrees azimuth
+ax2.set_title('')
+#ax2.view_init(elev=90, azim=-90)  # Top-down 2D view
+fig2.colorbar(scatter2, ax=ax2, label='')
+
+# Show the figure
+plt.tight_layout()
 plt.show()
+
 
 '''
 fig3 = plt.figure(3)
@@ -232,7 +260,6 @@ ax5.set_zlabel('Fluxo Linear YZ [W/cm]')
 fig5.colorbar(scatter5, ax=ax5, label='Fluxo Linear YZ [kW/cm]')
 ax5.set_title('Distribuição de Fluxo Linear no Plano YZ')
 plt.show()
-'''
 
 # Plotagem
 plt.figure(figsize=(10, 6))
@@ -253,4 +280,5 @@ plt.legend()
 plt.grid(True)
 plt.show()
 
+'''
 

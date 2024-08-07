@@ -27,7 +27,7 @@ cyc = 1000
 incyc = 100
 parts = 50
 days=[0.1,1,2,3,5,7,14,21,30,60,90,120,180,240,300,360,420,480,540,600,660,720,780,840]
-ind = 4
+ind = 0
 
 # Gd2O3 frações somente no elemento C02
 gd_fraction=16.0
@@ -36,7 +36,7 @@ boron_ppm = 1000
 # Pressão em mPa
 pressure_mpa = 12.7553
 # Temperatura do moderador
-temp_mod=300
+temp_mod=600
 # Temperatura do combustível
 temp_fuel=900
 
@@ -350,7 +350,7 @@ with open("nuscale_"+str(ind)+"h.c", "w",encoding="utf-8") as f:
     f.write("water\n")
     f.write("\n")
     f.write("pin spplenum\n")
-    f.write("m5      "+str_(spring)+"\n")
+    f.write("inconel625      "+str_(spring)+"\n")
     f.write("helium  "+str_(radius_fuel+gap)+"\n")
     f.write("m5      "+str_(radius_fuel+gap+clad)+" \n")
     f.write("water\n")
@@ -959,7 +959,7 @@ with open("nuscale_"+str(ind)+"d.c", "w") as f:
     f.write("water\n")
     f.write("\n")
     f.write("pin spplenum\n")
-    f.write("m5      "+str_(spring)+"\n")
+    f.write("inconel625      "+str_(spring)+"\n")
     f.write("helium  "+str_(radius_fuel+gap)+"\n")
     f.write("m5      "+str_(radius_fuel+gap+clad)+" \n")
     f.write("water\n")
@@ -1492,7 +1492,7 @@ with open("nuscale_"+str(ind)+"o.c", "w") as f:
     f.write("water\n")
     f.write("\n")
     f.write("pin spplenum\n")
-    f.write("m5      "+str_(spring)+"\n")
+    f.write("inconel625      "+str_(spring)+"\n")
     f.write("helium  "+str_(radius_fuel+gap)+"\n")
     f.write("m5      "+str_(radius_fuel+gap+clad)+" \n")
     f.write("water\n")
