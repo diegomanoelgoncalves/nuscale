@@ -9,7 +9,7 @@ import csv
 rc['serpentVersion'] = '2.1.30'
 
 # File number list and corresponding fuel temperatures (in Kelvin)
-numbers = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+numbers = [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
 temp = [26.85, 126.85, 226.85, 326.85, 426.85, 526.85, 626.85, 726.85, 826.85, 926.85, 1026.85, 1126.85, 1226.85]  # in Kelvin
 
 # Initialize lists to store keff values and FTC results
