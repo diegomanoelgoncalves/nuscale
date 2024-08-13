@@ -9,7 +9,7 @@ import csv
 rc['serpentVersion'] = '2.1.30'
 
 # File number list and corresponding boron concentrations (in ppm)
-numbers = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+numbers = [50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
 boron_concentrations = [0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000]  # in ppm
 
 # Initialize lists to store keff values and BWC results
